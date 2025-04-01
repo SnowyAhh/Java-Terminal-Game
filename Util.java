@@ -14,12 +14,12 @@ public class Util {
                 input = scanner.nextLine();
 
                 if (input.length() != 1) {
-                    throw new InputMismatchException("Error: Incorrect length, try again.");
+                    throw new InputMismatchException("Error: Incorrect length, try again: ");
                 }
 
                 if (allowNum) { 
                     if (Character.isDigit(input.charAt(0))) {
-                        int digitInput = input.charAt(0);
+                        int digitInput = Integer.parseInt(input);
 
                         if (intList.length > 0) {
                             for (int i = 0; i < intList.length; ++i) {
@@ -41,11 +41,11 @@ public class Util {
 
                 if (!valid && allowChar) {
                     if (Character.isAlphabetic(input.charAt(0))) {
-                        char charInput = input.charAt(0);
+                        char charInput = Character.toLowerCase(input.charAt(0));
 
                         if (charList.length > 0) {
                             for (int i = 0; i < charList.length; ++i) {
-                                if (charInput == charList[i]) {
+                                if (charInput == Character.toLowerCase(charList[i])) {
                                     valid = true;
                                     break;
                                 }
@@ -58,6 +58,7 @@ public class Util {
                         if (!valid) {
                             throw new InputMismatchException("Error: Invalid character entered, try again: ");
                         }
+                        return "" + charInput; // Causes og input to be lower case
                     }
                 }
 
