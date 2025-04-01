@@ -6,15 +6,15 @@ public class Main {
         Menu menu = new Menu();
         Util util = new Util();
         char[] validCharList = new char[1];
-        validCharList[0] = 'q';
         String input = " ";
         Scanner scanner = new Scanner(System.in);
+        rockPaperScissors rpsGame = new rockPaperScissors();
 
         while (input.charAt(0) != 'q') {
             menu.mainMenu();
-            input = util.getValidInput(scanner, true, true, validCharList);
+            input = util.getValidInput(scanner, true, true, new char[]{'q'});
             if (input.equals("1")) {
-                // Add game option here
+                rpsGame.game();
             }
         }
         
