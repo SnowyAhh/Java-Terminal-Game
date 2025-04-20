@@ -161,7 +161,33 @@ public class mathQuiz {
     private void round() {
         // Playing round: try to figure out the answer, can skip questions -> reveal answer
         // s = skip, q = quit the round and go back to menu
+        System.out.println("---Round " + round + "---");
+        generateQuestion();
+        generateAnswer();
+        System.out.println("Question: \n\t" + question);
 
+        boolean done = false;
+        while (!userInput.equals("q") || done) {
+            System.out.println("Enter the answer (s to skip and reveal answer, q to quit to quiz menu): ");
+            userInput = util.getValidInput(scanner, true, true, new char[]{'s', 'q'});
+            if (userInput.equals("s")) {
+                System.out.println("The answer is " + answer);
+                System.out.println("Next question!");
+                done = true;
+            }
+            else if (!userInput.equals("q")) {
+                int userAnswer = Integer.parseInt(userInput);
+                if (userAnswer == answer) {
+                    points++;
+                    System.out.println("Correct!");
+                    done = true;
+                }
+                else {
+                    System.out.println("That is incorrect");
+                }
+            }
+        }
+        
     }
 
     // Chooses what number and operation
@@ -177,20 +203,45 @@ public class mathQuiz {
             operationChosen = rand.nextInt(4) + 1;
         }
 
+        // Chosing num of operations
+        int numOp = rand.nextInt(maxOp) + 1;
+
+        // Adds first random number within range to question
         question += rand.nextInt(maxNum) + minNum + 1;
-        switch (operationChosen) {
-            case 1:
-                question += " + ";
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            default:
-                System.out.println("Error with choosing operation");
-                break;
+
+        while (numOp != 0) {
+            // Then adds operation 
+            switch (operationChosen) {
+                case 1:
+                    question += " + ";
+                    break;
+                case 2:
+                    question += " - ";
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("Error with choosing operation");
+                    break;
+            }
+
+            // Then adds another number
+            question += rand.nextInt(maxNum) + minNum + 1;
+
+            numOp--;
         }
     }
- }
+    
+    // Figures out the answer to the question
+    private void generateAnswer() {
+        // Separate question into different arrays/strings??
+        // Figure out if there are any x or /
+        // then multiply or divide by those around it (from left to right)
+        // Then add or subtract
+        
+        
+    }
+
+}
