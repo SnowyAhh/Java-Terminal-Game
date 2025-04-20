@@ -41,10 +41,10 @@ public class mathQuiz {
 
         // Current/default settings
         System.out.println("Current settings are: ");
-        System.out.println("\tDifficult: " + difficulty);
-        System.out.println("\tMaximum number allowed: " + maxNum);
-        System.out.println("\tMinimum number allowed: " + minNum);
-        System.out.println("\tMaximum number of operations allowed: " + maxOp);
+        System.out.println("Difficult: " + difficulty);
+        System.out.println("Maximum number allowed: " + maxNum);
+        System.out.println("Minimum number allowed: " + minNum);
+        System.out.println("Maximum number of operations allowed: " + maxOp);
 
         System.out.println("\nWould you like to change the settings? (y/n)");
         userInput = util.getValidInput(scanner, false, true, new char[]{'y', 'n'});
@@ -56,11 +56,11 @@ public class mathQuiz {
         while (userInput.charAt(0) != 'q') {
             // Print settings menu
             System.out.println("Choose a setting to change: ");
-            System.out.println("\t1: Difficult (" + difficulty + ")");
-            System.out.println("\t2: Maximum and minimum numbers used for questions (" + 
+            System.out.println("1: Difficult (" + difficulty + ")");
+            System.out.println("2: Maximum and minimum numbers used for questions (" + 
                                     maxNum + ", " + minNum + ")");
-            System.out.println("\t3: Maximum number of operations allowed (" + maxOp + ")");
-            System.out.println("\tq: Quit back to menu");
+            System.out.println("3: Maximum number of operations allowed (" + maxOp + ")");
+            System.out.println("q: Quit back to menu");
 
             userInput = util.getValidInput(scanner, true, true, new int[]{1,2,3}, new char[]{'q'});            
 
@@ -90,8 +90,8 @@ public class mathQuiz {
         while (!confirm) {
             // FIXME: add multiplication and division
             System.out.println("Please set the difficulty (currently: " + difficulty + "): ");
-            System.out.println("\t1: Addition and subtraction only");
-            // System.out.println("\t2: Above plus multiplication and division");
+            System.out.println("1: Addition and subtraction only");
+            // System.out.println("2: Above plus multiplication and division");
             userInput = util.getValidInput(scanner, true, false, new int[]{1,2});
 
             int tempDiff = Integer.parseInt(userInput);
@@ -112,11 +112,11 @@ public class mathQuiz {
 
         while (!confirm) {
             System.out.println("Please set the maximum and minimum numbers used for questions.");
-            System.out.println("\tMaximum number (currently: " + maxNum + "): ");
+            System.out.println("Maximum number (currently: " + maxNum + "): ");
             userInput = util.getValidInput(scanner, true, false);
             int tempMaxNum = Integer.parseInt(userInput);
 
-            System.out.println("\tMinimum number (currently: " + minNum + "): ");
+            System.out.println("Minimum number (currently: " + minNum + "): ");
             userInput = util.getValidInput(scanner, true, false);
             int tempMinNum = Integer.parseInt(userInput);
 
@@ -240,7 +240,7 @@ public class mathQuiz {
         // Figure out if there are any x or /
         // then multiply or divide by those around it (from left to right)
         // Then add or subtract
-        
+
         
     }
 
