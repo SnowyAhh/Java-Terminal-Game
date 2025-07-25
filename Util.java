@@ -13,10 +13,6 @@ public class Util {
             try {
                 input = scanner.nextLine();
 
-                if (input.length() != 1) {
-                    throw new InputMismatchException("Error: Incorrect length, try again: ");
-                }
-
                 if (allowNum) { 
                     if (Character.isDigit(input.charAt(0))) {
                         int digitInput = Integer.parseInt(input);
@@ -40,6 +36,10 @@ public class Util {
                 }
 
                 if (!valid && allowChar) {
+                    if (input.length() != 1) {
+                        throw new InputMismatchException("Error: Incorrect length, try again: ");
+                    }
+                    
                     if (Character.isAlphabetic(input.charAt(0))) {
                         char charInput = Character.toLowerCase(input.charAt(0));
 
